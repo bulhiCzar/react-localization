@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   translationsMap,
-} from './init'
+} from './initLocalization'
 import {
   useLocalization,
 } from './ProviderLocalization'
