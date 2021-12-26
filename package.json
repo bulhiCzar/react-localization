@@ -16,8 +16,7 @@
   "private": false,
   "author": "bulhi <spam.bulhi@ya.ru>",
   "publishConfig": {
-    "access": "public",
-    "registry": "https://github.com/bulhiCzar/react-localization"
+    "access": "public"
   },
   "peerDependencies": {
     "react": "*",
