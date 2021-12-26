@@ -1,6 +1,6 @@
 import React, { Dispatch, ReducerAction, useContext } from 'react'
 
-import { config } from './init'
+import { config } from './initLocalization'
 import { reducer, useStore } from './useStore'
 
 interface ContextLocalizationProps {
