@@ -6,7 +6,8 @@
   "license": "MIT",
   "files": [
     "./build/*",
-    "./build/*.d.ts"
+    "./build/*.d.ts",
+    "index.d.ts"
   ],
   "scripts": {
     "start": "node scripts/start.js",

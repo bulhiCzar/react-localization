@@ -22,7 +22,6 @@
     "declaration": true,
     "declarationDir": "build",
     "outDir": "build",
-    "emitDeclarationOnly": true,
     "jsx": "react",
     "typeRoots" : ["./node_modules/@types", "./src/types"]
   },
