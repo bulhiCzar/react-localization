@@ -3,7 +3,9 @@ import React from 'react'
 import {
   translationsMap,
 } from './init'
-import { useLocalization } from './ProviderLocalization'
+import {
+  useLocalization,
+} from './ProviderLocalization'
 
 export type Data = Record<string, string | number>
 

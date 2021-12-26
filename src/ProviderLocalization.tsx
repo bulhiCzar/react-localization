@@ -1,7 +1,7 @@
 import React, { Dispatch, ReducerAction, useContext } from 'react'
 
 import { config } from './init'
-import useStore, { reducer } from './useStore'
+import { reducer, useStore } from './useStore'
 
 interface ContextLocalizationProps {
   config: typeof config
