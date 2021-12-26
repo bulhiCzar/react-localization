@@ -1,4 +1,4 @@
 export * from './Translate'
-export * from './init'
+export * from './initLocalization'
 export * from './ProviderLocalization'
 export * from './withLocalization'

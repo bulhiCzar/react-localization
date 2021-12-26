@@ -19,7 +19,7 @@ export interface Options {
 
 export type Translation = Record<string, string>
 
-export interface Init {
+export interface InitLocalization {
   languages: Language[]
   translations: Record<Code, Translation>
   options: Options
@@ -38,7 +38,7 @@ export const config: Config = {
   activeLanguage: '',
 }
 
-export const init = (props: Init): void => {
+export const initLocalization = (props: InitLocalization): void => {
   const {
     languages,
     translations,
