@@ -113,6 +113,7 @@ __webpack_require__.d(__webpack_exports__, "translationsMap", function() { retur
 __webpack_require__.d(__webpack_exports__, "languagesMap", function() { return /* reexport */ languagesMap; });
 __webpack_require__.d(__webpack_exports__, "config", function() { return /* reexport */ init_config; });
 __webpack_require__.d(__webpack_exports__, "init", function() { return /* reexport */ init; });
+__webpack_require__.d(__webpack_exports__, "ContextLocalization", function() { return /* reexport */ ContextLocalization; });
 __webpack_require__.d(__webpack_exports__, "ProviderLocalization", function() { return /* reexport */ ProviderLocalization; });
 __webpack_require__.d(__webpack_exports__, "useLocalization", function() { return /* reexport */ useLocalization; });
 __webpack_require__.d(__webpack_exports__, "withLocalization", function() { return /* reexport */ withLocalization; });

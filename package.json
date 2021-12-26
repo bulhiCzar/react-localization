@@ -11,7 +11,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "pub": "yarn build && npm version patch && npm publish && git push"
+    "pub": "yarn build && npm version patch && npm publish"
   },
   "private": false,
   "author": "bulhi <spam.bulhi@ya.ru>",
