@@ -12,7 +12,7 @@ export interface TranslateProps {
   data?: Data
 }
 
-const Translate: React.FC<TranslateProps> = (props) => {
+export const Translate: React.FC<TranslateProps> = (props) => {
   const {
     id,
     data,
@@ -50,5 +50,3 @@ const Translate: React.FC<TranslateProps> = (props) => {
     </>
   )
 }
-
-export default Translate

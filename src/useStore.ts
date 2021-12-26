@@ -9,10 +9,8 @@ export const reducer = <T> (state: any, action: Record<string, string>): T => {
   }
 }
 
-const useStore = <T> (initValue?: T): [T, Dispatch<ReducerAction<typeof reducer>>] => {
+export const useStore = <T> (initValue?: T): [T, Dispatch<ReducerAction<typeof reducer>>] => {
   const store = React.useReducer(reducer, initValue)
 
   return store as any
 }
-
-export default useStore
