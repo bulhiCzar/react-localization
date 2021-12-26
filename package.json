@@ -2,7 +2,7 @@
   "name": "@bulhi/react-localization",
   "version": "0.0.8",
   "main": "build/index.js",
-  "types": "src/index.d.ts",
+  "types": "build/index.d.ts",
   "license": "MIT",
   "files": [
     "./build/*"
