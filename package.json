@@ -1,7 +1,7 @@
 {
   "name": "@bulhi/react-localization",
-  "version": "0.0.",
-  "main": "build/index.js",
+  "version": "0.0.2",
+  "main": "./build/index.js",
   "license": "MIT",
   "files": ["./build/*"],
   "scripts": {
@@ -10,9 +10,15 @@
     "test": "node scripts/test.js",
     "pre-publish": "yarn build"
   },
-  "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+  "private": false,
+  "lock": false,
+  "author": "bulhi <spam.bulhi@ya.ru>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
