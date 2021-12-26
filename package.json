@@ -1,12 +1,11 @@
 {
   "name": "@bulhi/react-localization",
   "version": "0.0.15",
-  "main": "./build/index.js",
-  "types": "./build/*.d.ts",
+  "main": "build/index.js",
+  "types": "build/*.d.ts",
   "license": "MIT",
   "files": [
-    "./build/index*.js",
-    "index.d.ts"
+    "build"
   ],
   "scripts": {
     "start": "node scripts/start.js",
