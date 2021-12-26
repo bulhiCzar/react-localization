@@ -5,7 +5,8 @@
   "types": "./build/index.d.ts",
   "license": "MIT",
   "files": [
-    "./build/*"
+    "./build/*",
+    "./build/*.d.ts"
   ],
   "scripts": {
     "start": "node scripts/start.js",
