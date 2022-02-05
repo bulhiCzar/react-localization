@@ -1,6 +1,6 @@
 {
   "name": "@bulhi/react-localization",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "license": "MIT",
