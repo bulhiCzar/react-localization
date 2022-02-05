@@ -118,6 +118,7 @@ __webpack_require__.d(__webpack_exports__, "ContextLocalization", function() { r
 __webpack_require__.d(__webpack_exports__, "ProviderLocalization", function() { return /* reexport */ ProviderLocalization; });
 __webpack_require__.d(__webpack_exports__, "useLocalization", function() { return /* reexport */ useLocalization; });
 __webpack_require__.d(__webpack_exports__, "withLocalization", function() { return /* reexport */ withLocalization; });
+__webpack_require__.d(__webpack_exports__, "getTranslate", function() { return /* reexport */ getTranslate; });
 
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(0);
@@ -238,7 +239,37 @@ var withLocalization = function (Component) {
     };
 };
 
+// CONCATENATED MODULE: ./src/getTranslate.tsx
+
+
+var getTranslate = function (props) {
+    var id = props.id, data = props.data;
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    var config = useLocalization().config;
+    var translated = (translationsMap.get(config.activeLanguage) || {})[id];
+    var replaceWithData = function (text, data) {
+        if (data === void 0) { data = {}; }
+        return text.replace(/\$\{(\w+)\}/g, function (str, key) {
+            var value = data[key];
+            return value.toString();
+        });
+    };
+    if (!translated &&
+        typeof config.onMissingTranslation === 'function') {
+        config.onMissingTranslation({
+            translationId: id,
+            languageCode: config.activeLanguage,
+        });
+    }
+    return !translated
+        ? id
+        : data
+            ? replaceWithData(translated, data)
+            : translated;
+};
+
 // CONCATENATED MODULE: ./src/index.ts
+
 
 
 
