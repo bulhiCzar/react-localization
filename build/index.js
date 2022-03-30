@@ -216,7 +216,7 @@ var getTranslate = function (id, props) {
             languageCode: config.activeLanguage,
         });
     }
-    var isHTML = /<\/>/.test(translated);
+    var isHTML = /<\/?[a-z][\s\S]*>/i.test(translated);
     var result = !translated
         ? id
         : data
