@@ -12,7 +12,7 @@ const translations = {
   ru: {
     hello: 'привет',
     'auth.title': 'спс за регу',
-    auth_button: 'далее ${number} <hr/>',
+    auth_button: 'далее ${number} <div>asdasd</div>',
   },
 }
 

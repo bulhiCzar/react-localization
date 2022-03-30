@@ -37,7 +37,7 @@ export const getTranslate = (
     })
   }
 
-  const isHTML = /<\/>/.test(translated)
+  const isHTML = /<\w+>|<\w+\/>/.test(translated)
 
   const result = !translated
     ? id
