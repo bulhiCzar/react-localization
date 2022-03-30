@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import React from 'react'
 import {
   translationsMap,
 } from './initLocalization'
@@ -6,20 +8,21 @@ import {
 } from './ProviderLocalization'
 import { TranslateProps, Data } from './Translate'
 
-export const getTranslate = (props: TranslateProps): string => {
-  const {
-    id,
-    data,
-  } = props
+export type getTranslateData = Omit<TranslateProps, 'id'>
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export const getTranslate = (
+  id: string,
+  props: getTranslateData,
+): React.DOMElement<React.DOMAttributes<Element>, Element> | string => {
+  const { data } = props
+
   const { config } = useLocalization()
 
   const translated = (translationsMap.get(config.activeLanguage) || {})[id]
 
   const replaceWithData = (text: string, data: Data = {}): string => {
     return text.replace(/\$\{(\w+)\}/g, (str: string, key: string) => {
-      const value = data[key]
+      const value = data[key] || ''
       return value.toString()
     })
   }
@@ -34,9 +37,15 @@ export const getTranslate = (props: TranslateProps): string => {
     })
   }
 
-  return !translated
+  const isHTML = /<\/>/.test(translated)
+
+  const result = !translated
     ? id
     : data
       ? replaceWithData(translated, data)
       : translated
+
+  return isHTML
+    ? React.createElement('span', { dangerouslySetInnerHTML: { __html: result } })
+    : result
 }

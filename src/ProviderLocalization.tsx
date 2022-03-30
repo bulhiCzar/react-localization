@@ -1,4 +1,4 @@
-import React, { Dispatch, ReducerAction, useContext } from 'react'
+import React, { Dispatch, ReducerAction, useContext, useEffect } from 'react'
 
 import { config } from './initLocalization'
 import { reducer, useStore } from './useStore'
@@ -24,6 +24,10 @@ export const ProviderLocalization: React.FC = ({ children }) => {
   const stateMemo = React.useMemo(() => (
     { config: state, update: dispatch, setActiveLanguage }
   ), [state])
+
+  useEffect(() => {
+    setActiveLanguage(state.activeLanguage)
+  }, [])
 
   return (
     <ContextLocalization.Provider value={stateMemo}>

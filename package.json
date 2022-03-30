@@ -1,6 +1,6 @@
 {
   "name": "@bulhi/react-localization",
-  "version": "0.0.23",
+  "version": "1.1.0",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "pub": "yarn build && npm version patch && npm publish"
   },
   "private": false,
-  "author": "bulhi <spam.bulhi@ya.ru>",
+  "author": "bulhi <spam.bulhi@gmail.com>",
   "publishConfig": {
     "access": "public"
   },
@@ -76,8 +76,10 @@
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "5.0.2",
     "prompts": "2.4.0",
+    "react": "17.0.2",
     "react-app-polyfill": "^2.0.0",
     "react-dev-utils": "^11.0.3",
+    "react-dom": "17.0.2",
     "react-refresh": "^0.8.3",
     "resolve": "1.18.1",
     "resolve-url-loader": "^3.1.2",

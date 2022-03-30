@@ -171,14 +171,11 @@ module.exports = function (webpackEnv) {
       isEnvDevelopment && !shouldUseReactRefresh
         ? [
           webpackDevClientEntry,
-          paths.appIndexJs,
+          paths.appDevIndexJs,
         ]
-        : paths.appIndexJs,
+        : paths.appDevIndexJs,
     output: {
-      library: '@bulhi/react-localization',
-      libraryTarget: 'umd',
-      umdNamedDefine: true,
-      path: isEnvProduction ? paths.appBuild : undefined,
+      path: undefined,
       pathinfo: isEnvDevelopment,
       filename: isEnvProduction
         ? 'index.js'
@@ -651,10 +648,6 @@ module.exports = function (webpackEnv) {
       net: 'empty',
       tls: 'empty',
       child_process: 'empty',
-    },
-    externals: {
-      react: 'react',
-      'react-dom': 'react-dom'
     },
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter

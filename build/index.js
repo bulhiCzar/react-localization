@@ -186,22 +186,26 @@ var ProviderLocalization = function (_a) {
         });
     };
     var stateMemo = external_react_default.a.useMemo(function () { return ({ config: state, update: dispatch, setActiveLanguage: setActiveLanguage }); }, [state]);
+    Object(external_react_["useEffect"])(function () {
+        setActiveLanguage(state.activeLanguage);
+    }, []);
     return (external_react_default.a.createElement(ContextLocalization.Provider, { value: stateMemo }, children));
 };
 var useLocalization = function () { return Object(external_react_["useContext"])(ContextLocalization); };
 
-// CONCATENATED MODULE: ./src/Translate.tsx
+// CONCATENATED MODULE: ./src/getTranslate.tsx
+/* eslint-disable react-hooks/rules-of-hooks */
 
 
 
-var Translate = function (props) {
-    var id = props.id, data = props.data;
+var getTranslate = function (id, props) {
+    var data = props.data;
     var config = useLocalization().config;
     var translated = (translationsMap.get(config.activeLanguage) || {})[id];
     var replaceWithData = function (text, data) {
         if (data === void 0) { data = {}; }
         return text.replace(/\$\{(\w+)\}/g, function (str, key) {
-            var value = data[key];
+            var value = data[key] || '';
             return value.toString();
         });
     };
@@ -212,11 +216,23 @@ var Translate = function (props) {
             languageCode: config.activeLanguage,
         });
     }
-    return (external_react_default.a.createElement(external_react_default.a.Fragment, null, !translated
+    var isHTML = /<\/>/.test(translated);
+    var result = !translated
         ? id
         : data
             ? replaceWithData(translated, data)
-            : translated));
+            : translated;
+    return isHTML
+        ? external_react_default.a.createElement('span', { dangerouslySetInnerHTML: { __html: result } })
+        : result;
+};
+
+// CONCATENATED MODULE: ./src/Translate.tsx
+
+
+var Translate = function (props) {
+    var id = props.id, data = props.data;
+    return (external_react_default.a.createElement(external_react_default.a.Fragment, null, getTranslate(id, { data: data })));
 };
 
 // CONCATENATED MODULE: ./src/withLocalization.tsx
@@ -237,35 +253,6 @@ var withLocalization = function (Component) {
     return function (props) {
         return (external_react_default.a.createElement(ContextLocalization.Consumer, null, function (value) { return (external_react_default.a.createElement(Component, withLocalization_assign({}, props, { config: value.config, setActiveLanguage: value.setActiveLanguage }))); }));
     };
-};
-
-// CONCATENATED MODULE: ./src/getTranslate.tsx
-
-
-var getTranslate = function (props) {
-    var id = props.id, data = props.data;
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    var config = useLocalization().config;
-    var translated = (translationsMap.get(config.activeLanguage) || {})[id];
-    var replaceWithData = function (text, data) {
-        if (data === void 0) { data = {}; }
-        return text.replace(/\$\{(\w+)\}/g, function (str, key) {
-            var value = data[key];
-            return value.toString();
-        });
-    };
-    if (!translated &&
-        typeof config.onMissingTranslation === 'function') {
-        config.onMissingTranslation({
-            translationId: id,
-            languageCode: config.activeLanguage,
-        });
-    }
-    return !translated
-        ? id
-        : data
-            ? replaceWithData(translated, data)
-            : translated;
 };
 
 // CONCATENATED MODULE: ./src/index.ts
