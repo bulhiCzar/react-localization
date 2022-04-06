@@ -10,7 +10,7 @@ export interface onMissingTranslationProps {
 export declare type onMissingTranslationFunction = (data: onMissingTranslationProps) => void;
 export interface Options {
     defaultLanguage: string;
-    onMissingTranslation?: onMissingTranslationFunction;
+    onMissingTranslation: onMissingTranslationFunction;
 }
 export declare type Translation = Record<string, string>;
 export interface InitLocalization {

@@ -26,6 +26,7 @@ export const App = withLocalization(({ setActiveLanguage }) => {
       translations,
       options: {
         defaultLanguage: 'ru',
+        // eslint-disable-next-line no-console
         onMissingTranslation: data => console.log(data),
       },
     })

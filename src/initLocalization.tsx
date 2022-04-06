@@ -14,7 +14,7 @@ export type onMissingTranslationFunction = (data: onMissingTranslationProps) => 
 
 export interface Options {
   defaultLanguage: string
-  onMissingTranslation?: onMissingTranslationFunction
+  onMissingTranslation: onMissingTranslationFunction
 }
 
 export type Translation = Record<string, string>
@@ -36,6 +36,7 @@ export interface Config {
 
 export const config: Config = {
   activeLanguage: '',
+  onMissingTranslation: () => null,
 }
 
 export const initLocalization = (props: InitLocalization): void => {
@@ -55,7 +56,5 @@ export const initLocalization = (props: InitLocalization): void => {
 
   config.activeLanguage = options.defaultLanguage || languages[0].code
 
-  if (typeof options.onMissingTranslation === 'function') {
-    config.onMissingTranslation = options.onMissingTranslation
-  }
+  config.onMissingTranslation = options.onMissingTranslation || (() => null)
 }

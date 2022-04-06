@@ -129,6 +129,7 @@ var translationsMap = new Map();
 var languagesMap = new Map();
 var initLocalization_config = {
     activeLanguage: '',
+    onMissingTranslation: function () { return null; },
 };
 var initLocalization = function (props) {
     var languages = props.languages, translations = props.translations, options = props.options;
@@ -140,9 +141,7 @@ var initLocalization = function (props) {
         translationsMap.set(code, translation);
     });
     initLocalization_config.activeLanguage = options.defaultLanguage || languages[0].code;
-    if (typeof options.onMissingTranslation === 'function') {
-        initLocalization_config.onMissingTranslation = options.onMissingTranslation;
-    }
+    initLocalization_config.onMissingTranslation = options.onMissingTranslation || (function () { return null; });
 };
 
 // CONCATENATED MODULE: ./src/useStore.ts
@@ -199,7 +198,7 @@ var useLocalization = function () { return Object(external_react_["useContext"])
 
 
 var getTranslate = function (id, props) {
-    var data = props.data;
+    var data = (props || {}).data;
     var config = useLocalization().config;
     var translated = (translationsMap.get(config.activeLanguage) || {})[id];
     var replaceWithData = function (text, data) {

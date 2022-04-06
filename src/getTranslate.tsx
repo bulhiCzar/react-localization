@@ -12,9 +12,9 @@ export type getTranslateData = Omit<TranslateProps, 'id'>
 
 export const getTranslate = (
   id: string,
-  props: getTranslateData,
+  props?: getTranslateData,
 ): React.DOMElement<React.DOMAttributes<Element>, Element> | string => {
-  const { data } = props
+  const { data } = props || {}
 
   const { config } = useLocalization()
 
